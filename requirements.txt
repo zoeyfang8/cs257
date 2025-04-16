@@ -1,3 +1,20 @@
 Names: Zoey Fang, Divya Nandalall
-Our dataset is from Kaggle, and it includes, the image of the flag, country name, continent, area, colors, and the main color of the flad. To get the data set we are using this link: https://www.kaggle.com/datasets/edoardoba/world-flags. We will download the csv from this website that you find by scrolling down.
+Our dataset is from Kaggle, and it includes, the image of the flag, country name, continent, area, colors, and the main color of the flag. To get the data set we are using this link: https://www.kaggle.com/datasets/edoardoba/world-flags. We will download the csv from this website that you find by scrolling down.
 
+Story: Someone curious about flags can browse and search through country flags and see the images.
+Implementation: Have a search bar to search by country to see the flag, and can browse through pages of countries in alphabetical order.
+
+Story: A person who's interested in seeing what country's flags have the same color combinations. 
+Implemtation: We have a checkbox menu where you can select and then seacth for the colors that you're interested in on the flags.
+
+Story: Someone who wants to know more about geography with which countries are in which continent.
+Implemtation: You can sort the countries by continent by clicking on the side-bar, and if you click on a country or flag in the browsing you'll get information about the continent that it is in.
+
+Stroy: A person interested in the area of a country.
+Implemetation: When you click on the country name or flag in the browse or sear h, you can see the area of that country in the description.
+
+Story: Someone who is curious about the predominant color in a country's flag.
+Implementation: After clicking on the coutry name or flag through the browsing or searching, in the description you can see what the main color of the flag is.
+
+Story: A person who is colorblind can get a list of all the colors on the country's flag.
+Implementation: If they click on the country name or flag through seraching or browsing, they will get a list of all the colors on the flag in the description.
