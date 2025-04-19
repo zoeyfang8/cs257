@@ -19,7 +19,7 @@ def get_parsed_arguments():
     return parsed_arguments
 
 def country_color(color):
-    colors = {'red':1, 'green':2, 'blue':3, 'gold':4, 'white':5, 'black':6, 'orange':7}
+    colors = {'red':10, 'green':11, 'blue':12, 'gold':13, 'white':14, 'black':15, 'orange':16}
 
     #make sure color entered is one of the options
     if color not in colors:
