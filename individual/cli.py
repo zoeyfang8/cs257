@@ -38,6 +38,7 @@ def country_color(color):
         countrynameIndex = header.index("name")
 
         for row in reader:
+            print(f"checking row: {row}")
             if row[colors[color]] == '1': #1 means the color is there
                 countriesWithColor.append(row[countrynameIndex])
 
