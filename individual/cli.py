@@ -8,7 +8,6 @@ SYNOPSIS: python3 cli.py color
 DESCRIPTION: Shows a list of the countries that have the specified color
 '''
 import argparse
-import sys 
 import csv
 
 #credit: used argparse-sample.py example from Jeff
@@ -38,25 +37,24 @@ def country_color(color):
         countrynameIndex = header.index("name")
 
         for row in reader:
-            print(f"checking row: {row}")
             if row[colors[color]] == '1': #1 means the color is there
                 countriesWithColor.append(row[countrynameIndex])
 
         return countriesWithColor
     
-    #credit: used example code from Jeff's argparse-sample.py and sysargv-sample.py
-    def main():
-        arguments = get_parsed_arguments()
-        color = arguments.color.lower() #added .lower() in case user didn't use lower case
-        countries = country_color(color)
+#credit: used example code from Jeff's argparse-sample.py and sysargv-sample.py
+def main():
+    arguments = get_parsed_arguments()
+    color = arguments.color[0].lower() #added .lower() in case user didn't use lower case
+    countries = country_color(color)
 
-        if len(countries) > 0:
-            print(f"Countries with the color {color}:")
-            for country in countries:
-                print(country)
-        else:
-            print(f"No countries with the color {color}")
+    if len(countries) > 0:
+        print(f"Countries with the color {color}:")
+        for country in countries:
+            print(country)
+    else:
+        print(f"No countries with the color {color}")
 
-    if __name__ == '__main__':
-        main()
+if __name__ == '__main__':
+    main()
 
