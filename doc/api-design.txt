@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 Names: Zoey Fang and Divya Nandalall
-=======
+
 Endpoints:
 
 REQUEST: /mainhue/{continent}
@@ -36,4 +35,3 @@ RESPONSE: a JSON list, each of which represents one country, with each element a
    area -- (int) the area of the country
    mainhue – (string) the main color of the flag of the country
    colors – the colors that are on the flag of the country
->>>>>>> fd60db4984b55e06ba3112883a958651411a2be0
