@@ -4,13 +4,13 @@
 
     This program converts a CSV file with the format
 
-        title,publication-year,author-surname,author-given-name,author-birth-year,author-death-year
+        name,continent,image,area,colours,red,green,blue,gold,white,black,orange,mainhue
 
     into separate CSV files with the formats:
 
-        authors.csv: id,surname,given-name,birth-year,death-year
-        books.csv: id,title,publication-year
-        books_authors.csv: book_id,author_id
+        flags.csv: id,name,image,colours,red,green,blue,gold,white,black,orange,mainhue
+        countries.csv: id,name,continent,area
+        flags_countries.csv: flags_id,countries_id
 
     Because everything about this is so specific, I've hard-coded quite a bit of information.
 '''
@@ -19,55 +19,70 @@ import sys
 import csv
 
 def main(input_file_name):
-    # Collect the data and assign ids to books and authors
-    books_authors = []
-    books = {}
-    authors = {}
+    # Collect the data and assign ids to flags and countries
+    flags_countries = []
+    flags = {}
+    countries = {}
     with open(input_file_name) as f:
         reader = csv.reader(f)
-        for book_row in reader:
-            title = book_row[0]
-            publication_year = book_row[1]
-            surname = book_row[2]
-            given_name = book_row[3]
-            birth_year = book_row[4] if book_row[4] else 'NULL'
-            death_year = book_row[5] if book_row[5] else 'NULL'
-            author_key = f'{surname}+{given_name}'
-            book_key = f'{title}+{publication_year}'
+        for row in reader:
+            name = row[0]
+            continent = row[1]
+            image = row[2] if row[2] else 'NULL'
+            area = row[3]
+            colours = row[4]
+            red = row[5]
+            green = row[6]
+            blue = row[7]
+            gold = row[8]
+            white = row[9]
+            black = row[10]
+            orange = row[11]
+            mainhue = row[12]
+            flag_key = f'{name}'
+            country_key = f'{name}'
 
-            if book_key not in books:
-                books[book_key] = {'id': len(books),
-                                   'title': title,
-                                   'publication_year': publication_year}
+            if flag_key not in flags:
+                flags[flag_key] = {'id': len(flags),
+                                   'name': name,
+                                   'image': image,
+                                   'colours': colours,
+                                   'red': red,
+                                   'green': green,
+                                   'blue': blue,
+                                   'gold': gold,
+                                   'white': white,
+                                   'black': black,
+                                   'orange': orange,
+                                   'mainhue': mainhue}
 
-            if author_key not in authors:
-                authors[author_key] = {'id': len(authors),
-                                       'surname': surname,
-                                       'given_name': given_name,
-                                       'birth_year': birth_year,
-                                       'death_year': death_year}
+            if country_key not in countries:
+                countries[country_key] = {'id': len(countries),
+                                       'name': name,
+                                       'area': area,
+                                       'continent': continent,}
 
-            books_authors.append((authors[author_key]['id'], books[book_key]['id']))
+            flags_countries.append((countries[country_key]['id'], flags[flag_key]['id']))
 
     # Write to the table files
-    with open('authors.csv', 'w') as f:
+    with open('countries.csv', 'w') as f:
         writer = csv.writer(f)
-        for author_key in authors:
-            author = authors[author_key]
-            row = (author['id'], author['surname'], author['given_name'], author['birth_year'], author['death_year'])
+        for country_key in countries:
+            country = countries[country_key]
+            row = (country['id'], country['name'], country['area'], country['area'], country['continent'])
             writer.writerow(row)
 
-    with open('books.csv', 'w') as f:
+    with open('flags.csv', 'w') as f:
         writer = csv.writer(f)
-        for book_key in books:
-            book = books[book_key]
-            row = (book['id'], book['title'], book['publication_year'])
+        for flag_key in flags:
+            flag = flags[flag_key]
+            row = (flag['id'], flag['name'], flag['colours'], flag['red'], flag['green'], flag['blue'], flag['gold'], flag['white'], flag['black'], flag['orange'], flag['mainhue'])
             writer.writerow(row)
 
-    with open('books_authors.csv', 'w') as f:
+    with open('flags_countries.csv', 'w') as f:
         writer = csv.writer(f)
-        for book_id, author_id in books_authors:
-            writer.writerow((book_id, author_id))
+        for flag_id, country_id in flags_countries:
+            writer.writerow((flag_id, country_id))
 
 if len(sys.argv) != 2:
     print(f'Usage: {sys.argv[0]} original_csv_file', file=sys.stderr)
