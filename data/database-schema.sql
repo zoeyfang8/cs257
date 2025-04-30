@@ -6,6 +6,7 @@ CREATE TABLE countries (
 CREATE TABLE flags (
     id integer NOT NULL,
     flagpicture text,
+    numberOfColors text,
     red	integer,
     green integer,
     blue integer,
