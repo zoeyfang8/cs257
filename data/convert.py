@@ -69,7 +69,7 @@ def main(input_file_name):
         writer = csv.writer(f)
         for country_key in countries:
             country = countries[country_key]
-            row = (country['id'], country['name'], country['area'], country['area'], country['continent'])
+            row = (country['id'], country['name'], country['image'], country['area'], country['area'], country['continent'])
             writer.writerow(row)
 
     with open('flags.csv', 'w') as f:
