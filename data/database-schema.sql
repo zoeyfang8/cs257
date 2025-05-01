@@ -1,12 +1,14 @@
 CREATE TABLE countries (
     id integer NOT NULL,
+    countryname text,
     area integer,
     continent integer
 );
 CREATE TABLE flags (
     id integer NOT NULL,
-    flagpicture text,
-    numberOfColors text,
+    countryname text,
+    flagimage text,
+    colours text,
     red	integer,
     green integer,
     blue integer,
