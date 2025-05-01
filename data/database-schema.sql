@@ -19,7 +19,7 @@ CREATE TABLE flags (
     mainhue text
 );
 
-CREATE TABLE countries_flags (
+CREATE TABLE flags_countries (
     country_id integer,
     flag_id integer
 );
