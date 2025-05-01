@@ -1,16 +1,16 @@
-SELECT flags.name
+SELECT flags.countryname
 FROM flags, flags_countries
 WHERE flags.red = '1'
 AND flags.id = flags_countries.flag_id;
 
 
-SELECT countries.name, countries.continent, flags.mainhue
+SELECT countries.countryname, countries.continent, flags.mainhue
 FROM flags, countries, flags_countries
 WHERE flags.id = flags_countries.flag_id
 AND  countries.id = flags_countries.country_id;
 
 
-SELECT countries.name, countries.area
+SELECT countries.countryname, countries.area
 FROM countries, flags_countries
 WHERE flags.id = flags_countries.flag_id
 AND countries.id = flags_countries.country_id
