@@ -1,11 +1,4 @@
 #!/usr/bin/env python3
-'''
-    api.py
-    Zoey Fang
-    4/19/25
-    Credit: used Jeff's flask_example.py as a example
-
-'''
 import sys
 import argparse
 import flask
