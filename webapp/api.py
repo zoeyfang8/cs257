@@ -31,7 +31,7 @@ def get_info_about_country(countryname):
     with open('../data/allflags.csv') as f:
         reader = csv.reader(f)
 
-        #name, continent, area, mainhue, number of colors 
+        #name, continent, area, mainhue, number of colors, and what colors
         for row in reader:
             if row[0] == countryname: 
                 #name
@@ -59,6 +59,22 @@ def get_info_about_country(countryname):
 
                 #number of colors
                 infoAboutCountry.append(row[4])
+
+                #what colors
+                if row[5] == '1':
+                    infoAboutCountry.append('red')
+                if row[6] == '1':
+                    infoAboutCountry.append('green')
+                if row[7] == '1':
+                    infoAboutCountry.append('blue')
+                if row[8] == '1':
+                    infoAboutCountry.append('gold')
+                if row[9] == '1':
+                    infoAboutCountry.append('white')
+                if row[10] == '1':
+                    infoAboutCountry.append('black')
+                if row[11] == '1':
+                    infoAboutCountry.append('orange')
 
         return json.dumps(infoAboutCountry)
 
