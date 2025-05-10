@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flags and Countries API reference</title>
+</head>
+<body>
+    <pre>Color API: endpoint reference
+All responses are in JSON
+
+REQUEST: /help
+RESPONSE:
+    Hi! This is an API for information about countries and flags!
+
+REQUEST: /mainhue/{continent}
+RESPONSE:
+    A list of countries in a specified continent (case-insensitively)and the main hue of their 
+    country flag. Each country and their main hue is a dictionary with the country name as the key
+    and main hue as the associated value. 
+    Available continents: North_America; South_America; Europe; Africa; Asia; Oceania
+
+REQUEST: /countries2
+GET Parameters: 
+/countries?color=<color>&continent={continent}
+	REQUEST: color (Optional, default = ‘ ’)
+Available colors: colors = {'red':10, 'green':11, 'blue':12, 'gold':13, 'white':14, 'black':15, 'orange':16}
+	REQUEST: continent (Optional, default = ‘ ’) 
+
+RESPONSE: A list of the countries who have that specific color in their flag. Each country has colors associated with it, with a 1 meaning that it’s there and 0 that it’s not there. This returns a list of countries with those colors. Along with an alphabetized JSON list of strings where each element in the list represents a country situated in the specified continent. If they don’t put in a color then they won’t get the color list, and if they don’t put in a continent they won’t get a list of countries in that continent. 
+ Example: /countries?color=‘red,green,gold’&continent=‘asia’
+	{list of countries with red, green, and gold in flag and that are in the continent Asia}
+
+REQUEST: /countries
+RESPONSE: a JSON list of dictionaries, each of which represents one country, sorted alphabetically. Each country's dictionary will have the following fields.
+   name -- (string) the name of the country
+   continent -- (string) the continent the country belongs to
+   area -- (int) the area of the country
+   mainhue – (string) the main color of the flag of the country
+   colors – the colors that are on the flag of the country
+
+REQUEST: /country/{country name}
+RESPONSE: a JSON dictionary, each of which represents one country, with each element as an attribute of the country. Each country's list will have the following information:
+   name -- (string) the name of the country
+   continent -- (string) the continent the country belongs to
+   area -- (int) the area of the country
+   mainhue – (string) the main color of the flag of the country
+   colors – the colors that are on the flag of the country
+ 
+    </pre>
+</body>
+</html>
+
+
