@@ -9,7 +9,7 @@ RESPONSE:
     and main hue as the associated value. 
     Available continents: North_America; South_America; Europe; Africa; Asia; Oceania
 
-REQUEST: /countries
+REQUEST: /countries2
 GET Parameters: 
 /countries?color=<color>&continent={continent}
 	REQUEST: color (Optional, default = ‘ ’)
@@ -29,7 +29,7 @@ RESPONSE: a JSON list of dictionaries, each of which represents one country, sor
    colors – the colors that are on the flag of the country
 
 REQUEST: /country/{country name}
-RESPONSE: a JSON list, each of which represents one country, with each element as an attribute of the country. Each country's list will have the following information:
+RESPONSE: a JSON dictionary, each of which represents one country, with each element as an attribute of the country. Each country's list will have the following information:
    name -- (string) the name of the country
    continent -- (string) the continent the country belongs to
    area -- (int) the area of the country
