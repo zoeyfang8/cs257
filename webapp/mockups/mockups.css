@@ -12,19 +12,6 @@ h1 {
     color: rgb(189, 16, 16);
 }
 
-ol {
-    /* See https://www.w3schools.com/css/css_list.asp */
-    list-style-type: lower-alpha;
-}
-
-.alarming {
-    /* equivalent to color: red */
-    color: #FF0000;
-}
-
-.big {
-    font-size: 36pt;
-}
 
 #home {
     text-align: center;
@@ -90,8 +77,44 @@ h3 {
     color: #ffffff;
 }
 
-#cctop {
+.cctop {
     font-weight: 800;
     font-size: 200%;
     margin-left: .5%;
+}
+
+.new_search{
+    margin-left: 50%;
+    display: inline-block;
+    background-color: #0a0c8b;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    color: white;
+    width: 10%;
+    border: none;
+    font-weight: bold;
+}
+
+.flagimage {
+    width: 200px;
+    height: 125px;
+}
+
+.countriesgrid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.body {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.flagcountryname {
+    font-size: 130%;
+    margin-top: .5%;
+}
+
+.indvgrid {
+    margin-bottom: 15%;
 }
