@@ -63,3 +63,35 @@ ol {
     margin-left: auto;
     margin-right: auto;
 }
+
+#color {
+    margin-top: 2%;
+    margin-left: 18%;
+}
+
+#continent {
+    margin-top: .5%;
+    margin-left: 15%;
+    font-size: 90%
+}
+
+h3 {
+    font-size: 120%;
+    margin-left: 5%;
+    margin-bottom: .5%;
+}
+
+#ccsearch {
+    height: 40px;
+    width: 10%;
+    font-size: 150%;
+    margin-left: 70%;
+    background-color: #03af34;
+    color: #ffffff;
+}
+
+#cctop {
+    font-weight: 800;
+    font-size: 200%;
+    margin-left: .5%;
+}
