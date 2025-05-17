@@ -158,3 +158,43 @@ h3 {
     margin-bottom: 0.5%;
 
 }
+
+.flagimage{
+    width: 200px;
+    height: 125px;
+}
+
+.country{
+    display: grid;
+    grid-template-columns: 30% auto;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    
+}
+
+.image_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.single_image{
+
+    width: 70%;
+
+}
+
+#single_title{
+    font-size: 300%;
+    margin: 0%;
+}
+
+#single_continent{
+    font-size: 150%;
+    margin: 0%;
+}
+
+#single_area{
+    font-size: 100%;
+    margin: 0%;
+    color:rgb(84, 85, 87)
+}
