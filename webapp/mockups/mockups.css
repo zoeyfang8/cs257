@@ -123,3 +123,38 @@ h3 {
     margin-top: 2%;
     margin-left: 38%;
 }
+
+#continent_selection{
+    text-align: center;
+}
+
+#go_button{
+    display: inline-block;
+    background-color: #03af34;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    color: white;
+    width: 10%;
+    border: none;
+    font-weight: bold;
+}
+
+.grid_element{
+    padding: 10%;
+}
+
+.country_name{
+    font-size: 100%;
+    font-weight: bold;
+    margin-bottom: 0.5%;
+    margin-top: 1%;
+    padding-top: 0.5%;
+}
+
+.country_mainhue{
+    font-size: 100%;
+    color: rgb(84, 85, 87);
+    margin-top: 1%;
+    margin-bottom: 0.5%;
+
+}
