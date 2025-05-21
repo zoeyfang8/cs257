@@ -1,0 +1,201 @@
+p {
+    color: rgb(9, 9, 9);
+}
+
+h2 {
+    font-size: 120%
+}
+
+h1 {
+    font-size: 500%;
+    text-align: center;
+    color: rgb(189, 16, 16);
+}
+
+
+#home {
+    text-align: center;
+    height: 10px;
+    width: 20%;
+    font-size: 200%;
+    color: #2d49ff;
+}
+
+#mainhue {
+    height: 100px;
+    width: 30%;
+    font-size: 150%;
+    margin-left: 15%;
+    background-color: #03af34;
+    color: #ffffff;
+}
+
+#colorcontinent {
+    height: 100px;
+    width: 30%;
+    font-size: 150%;
+    margin-left: 15%;
+    background-color: #03af34;
+    color: #ffffff;
+}
+
+#homelink {
+    text-decoration: underline;
+    color: #2d49ff;
+}
+
+#worldmap {
+    display: block;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#color {
+    margin-top: 2%;
+    margin-left: 18%;
+}
+
+#continent {
+    margin-top: .5%;
+    margin-left: 15%;
+    font-size: 90%
+}
+
+h3 {
+    font-size: 120%;
+    margin-left: 5%;
+    margin-bottom: .5%;
+}
+
+#ccsearch {
+    height: 40px;
+    width: 10%;
+    font-size: 150%;
+    margin-left: 70%;
+    background-color: #03af34;
+    color: #ffffff;
+}
+
+.cctop {
+    font-weight: 800;
+    font-size: 200%;
+    margin-left: .5%;
+}
+
+.new_search{
+    margin-left: 50%;
+    display: inline-block;
+    background-color: #0a0c8b;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    color: white;
+    width: 10%;
+    border: none;
+    font-weight: bold;
+}
+
+.flagimage {
+    width: 200px;
+    height: 125px;
+}
+
+.countriesgrid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.body {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.flagcountryname {
+    font-size: 130%;
+    margin-top: .5%;
+}
+
+.indvgrid {
+    margin-bottom: 15%;
+}
+
+.countrysearch {
+    margin-top: 2%;
+    margin-left: 38%;
+}
+
+#continent_selection{
+    text-align: center;
+}
+
+#go_button{
+    display: inline-block;
+    background-color: #03af34;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    color: white;
+    width: 10%;
+    border: none;
+    font-weight: bold;
+}
+
+.grid_element{
+    padding: 10%;
+}
+
+.country_name{
+    font-size: 100%;
+    font-weight: bold;
+    margin-bottom: 0.5%;
+    margin-top: 1%;
+    padding-top: 0.5%;
+}
+
+.country_mainhue{
+    font-size: 100%;
+    color: rgb(84, 85, 87);
+    margin-top: 1%;
+    margin-bottom: 0.5%;
+
+}
+
+.flagimage{
+    width: 200px;
+    height: 125px;
+}
+
+.country{
+    display: grid;
+    grid-template-columns: 30% auto;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    
+}
+
+.image_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.single_image{
+
+    width: 70%;
+
+}
+
+#single_title{
+    font-size: 300%;
+    margin: 0%;
+}
+
+#single_continent{
+    font-size: 150%;
+    margin: 0%;
+}
+
+#single_area{
+    font-size: 100%;
+    margin: 0%;
+    color:rgb(84, 85, 87)
+}
+
