@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='countryflag.css') }}" />
+    <script type="text/javascript" src="{{ url_for('static', filename='webapp.js') }}"></script>
+</head>
+
+<body>
+    <div id="home">
+        <div id="homepage"><a id = "homelink" href = "mockup1.html">HOME</a></div>
+    </div>
+
+    <h1>Flags and Countries</h1>
+
+    <hr>
+
+    <h2>Welcome to the Flags and Countries website! You can search by country and flags using 
+        information about the colors and continent.  </p>
+    
+    
+    <a href = "mockup2.html"> 
+         <button id="mainhue">View Mainhue</button>
+    </a> 
+
+    <a href = "mockup3.html"> 
+        <button id="colorcontinent">Search By Color/Continent</button>
+    </a>
+
+    <h1>
+        Hey Grader. Use the search bar below and type in a country, then press search!
+    </h1>
+    <div class="countrysearch">
+        <h2> Search by Country Name: </a>
+             
+           <!-- <form action="/country" >
+                <input type = "text" name = "countryname" placeholder="Search" id = "country_name_search">
+                <input type="submit" id="searchbutton">
+            </form>  -->
+
+            <input type = "text" name = "countryname" placeholder="Search" id = "country_name_search">
+            <button id = "searchbutton" class = "ccsearch"> Search </button>
+    </div>
+
+    <div id = "countryinfo"></div>
+    
+    <img id = "worldmap" src="https://upload.wikimedia.org/wikipedia/commons/1/17/World.svg">
+
+
+</body>
+</html>
