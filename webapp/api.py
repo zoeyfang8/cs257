@@ -6,19 +6,19 @@ import json
 import config
 import psycopg2
 
-app = flask.Flask(__name__)
+api = flask.Blueprint('api', __name__)
 
-@app.route('/')
+@api.route('/')
 def hello():
     return 'Hello, this is the flag and countries api.py'
 
 
 #GET parameters one - colors and/or continent
 #returning list of countries with those color/continent
-@app.route('/countries2')
+@api.route('/countries2')
 def two_parameters_info():
     legal_colors = set(['red','green','blue','gold','white','black','orange'])
-    query = '''SELECT flags.countryname
+    query = '''SELECT flags.countryname, flags.flagimage
                 FROM flags, countries, flags_countries
                 WHERE 1=1
                 AND flags.id = flags_countries.flag_id
@@ -55,7 +55,8 @@ def two_parameters_info():
         cursor = connection.cursor()
         cursor.execute(query) 
         for row in cursor:
-            countriesList.append(row[0])
+            nameImageDict = {'name': row[0], 'image': row[1]}
+            countriesList.append(nameImageDict)
         cursor.close()
         connection.close()
     except Exception as e:
@@ -69,7 +70,7 @@ def two_parameters_info():
 def country_name_search_helper(countryname):
 
     like_argument = '%' + countryname + '%' # 1. isolate the user input
-    query = ''' SELECT flags.countryname, flags.mainhue, flags.colours, flags.red, flags.green, flags.blue, flags.gold, flags.white, flags.black, flags.orange, countries.continent, countries.area
+    query = ''' SELECT flags.countryname, flags.mainhue, flags.colours, flags.red, flags.green, flags.blue, flags.gold, flags.white, flags.black, flags.orange, countries.continent, countries.area, flags.flagimage
                 FROM flags, countries, flags_countries
                 WHERE flags.countryname LIKE %s 
                 AND flags.id = flags_countries.flag_id
@@ -95,20 +96,28 @@ def country_name_search_helper(countryname):
                 infoAboutCountry.update({'Number Of Colors': row[2]})
 
                 #what colors
+                colorlist = []
                 if row[3] == 1:
-                    infoAboutCountry.update({'color red': 'red'})
+                    colorlist.append('red')
+                    infoAboutCountry.update({'colors': colorlist})
                 if row[4] == 1:
-                    infoAboutCountry.update({'color green': 'green'})
+                    colorlist.append('green')
+                    infoAboutCountry.update({'colors': colorlist})
                 if row[5] == 1:
-                    infoAboutCountry.update({'color blue': 'blue'})
+                    colorlist.append('blue')
+                    infoAboutCountry.update({'colors': colorlist})
                 if row[6] == 1:
-                    infoAboutCountry.update({'color gold': 'gold'})
+                    colorlist.append('gold')
+                    infoAboutCountry.update({'colors': colorlist})
                 if row[7] == 1:
-                    infoAboutCountry.update({'color white': 'white'})
+                    colorlist.append('white')
+                    infoAboutCountry.update({'colors': colorlist})
                 if row[8] == 1:
-                    infoAboutCountry.update({'color black': 'black'})
+                    colorlist.append('black')
+                    infoAboutCountry.update({'colors': colorlist})
                 if row[9] == 1:
-                    infoAboutCountry.update({'color orange': 'orange'})
+                    colorlist.append('orange')
+                    infoAboutCountry.update({'colors': colorlist})
 
                 #continent
                 if row[10] == 1:
@@ -127,6 +136,9 @@ def country_name_search_helper(countryname):
                 #area
                 infoAboutCountry.update({'area': row[11]})
 
+                #image
+                infoAboutCountry.update({'flagimage': row[12]})
+
         cursor.close()
         connection.close()
     except Exception as e:
@@ -137,13 +149,13 @@ def country_name_search_helper(countryname):
 
 
 #information about one country
-@app.route('/country/<countryname>')
+@api.route('/country/<countryname>')
 def get_info_about_country(countryname):
     finaldict = country_name_search_helper(countryname)
     return json.dumps(finaldict)
 
 
-@app.route('/countries')
+@api.route('/countries')
 def get_info_about_all_countries():
     query = ''' SELECT flags.countryname
                 FROM flags''' 
@@ -170,7 +182,7 @@ def get_info_about_all_countries():
 
 
 #gets the mainhue of countries in a specific continent
-@app.route('/mainhue/<continent>')
+@api.route('/mainhue/<continent>')
 def get_mainhue(continent):
     continent = continent.lower()
     print(continent)
@@ -193,12 +205,12 @@ def get_mainhue(continent):
     else:
         where_argument = 0
          
-    query ='''  SELECT countries.countryname, flags.mainhue
+    query ='''  SELECT countries.countryname, flags.mainhue, flags.flagimage
                 FROM countries, flags, flags_countries
                 WHERE countries.continent = %s
                 AND countries.id = flags_countries.country_id
                 AND flags.id = flags_countries.flag_id'''
-    mainhue_dict = {}
+    mainhue_list = []
     try:
         connection = psycopg2.connect(database=config.database,
                                       user=config.user,
@@ -207,23 +219,16 @@ def get_mainhue(continent):
         cursor.execute(query, (where_argument,)) 
         print('QUERY:', cursor.query.decode('utf-8'))
         for row in cursor:
-            mainhue_dict[row[0]] = row[1]
-            print(mainhue_dict)
+            mainhue_dict = {'name': row[0], 'mainhue': row[1], 'image': row[2]}
+            mainhue_list.append(mainhue_dict)
         cursor.close()
         connection.close()
     except Exception as e:
         print(e, file=sys.stderr)
 
-    return json.dumps(mainhue_dict)
+    return json.dumps(mainhue_list)
 
 
-@app.route('/help')
+@api.route('/help')
 def get_help():
     return flask.render_template('help.html')
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser('Flag and Countries Flask API')
-    parser.add_argument('host', help='the host on which this application is running')
-    parser.add_argument('port', type=int, help='the port on which this application is listening')
-    arguments = parser.parse_args()
-    app.run(host=arguments.host, port=arguments.port, debug=True)
