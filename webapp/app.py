@@ -12,13 +12,7 @@ app.register_blueprint(api.api, url_prefix='/api')
 
 @app.route('/')
 def home():
-    return flask.render_template('home.html')
-
-# , methods=['POST']
-@app.route('/country')
-def countryname():
-    # countryname = flask.request.args.get("countryname")
-    return flask.render_template('home.html')
+    return flask.render_template('actualhome.html')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('A tiny Flask application, including API')

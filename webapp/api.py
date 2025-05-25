@@ -10,7 +10,7 @@ api = flask.Blueprint('api', __name__)
 
 @api.route('/')
 def hello():
-    return 'Hello, this is the flag and countries api.py'
+    return json.dumps()
 
 
 #GET parameters one - colors and/or continent
@@ -33,17 +33,17 @@ def two_parameters_info():
    # print(args['continent'])
     #print(args['continent'] == ['north_america'])
     if 'continent' in args:
-        if args['continent'] == ['north_america']:
+        if args['continent'] == ['North America']:
             query += f' AND continent = 1'
-        elif args['continent'] == ['south_america']:
+        elif args['continent'] == ['South America']:
             query += f' AND continent = 2'
-        elif args['continent'] == ['europe']:
+        elif args['continent'] == ['Europe']:
             query += f' AND continent = 3'
-        elif args['continent'] == ['africa']:
+        elif args['continent'] == ['Africa']:
             query += f' AND continent = 4'
-        elif args['continent'] == ['asia']:
+        elif args['continent'] == ['Asia']:
             query += f' AND continent = 5'
-        elif args['continent'] == ['oceania']:
+        elif args['continent'] == ['Oceania']:
             query += f' AND continent = 6'
 
     #print(query)
@@ -190,9 +190,9 @@ def get_mainhue(continent):
 
     print(user_input)
 
-    if (user_input == '%north_america%'):
+    if (user_input == '%north america%'):
         where_argument = 1
-    elif (user_input == '%south_america%'):
+    elif (user_input == '%south america%'):
         where_argument = 2
     elif (user_input == '%europe%'):
         where_argument = 3
