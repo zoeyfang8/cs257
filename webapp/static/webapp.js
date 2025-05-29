@@ -161,16 +161,17 @@ function onGoMainhueButton() {
 
         var element = document.getElementById('countryinfo');
         element.innerHTML = body;
+
+        var mainhueNewSearchElement = document.getElementById('mainhuenewsearch');
+        if (mainhueNewSearchElement) {
+            mainhueNewSearchElement.onclick = onMainhueButton;
+        }
     })
 
     .catch(function(error) {
         console.log(error);
     });
 
-    var mainhueNewSearchElement = document.getElementById('mainhuenewsearch');
-    if (mainhueNewSearchElement) {
-         mainhueNewSearchElement.onclick = onMainhueButton;
-    }
 }
 
 function onFilterButton() {
@@ -262,7 +263,7 @@ function onGoFilterButton() {
 
     .then(function(countriesList) {
         var body = `<h2 class="cctop">Color and Continent Search Results:
-            <button class="new_search">New Search</button>
+            <button class="new_search" id = "filternewsearch">New Search</button>
      
          </h2>
 
@@ -282,6 +283,11 @@ function onGoFilterButton() {
 
         var element = document.getElementById('countryinfo');
         element.innerHTML = body;
+
+        var filterNewSearchElement = document.getElementById('filternewsearch');
+        if (filterNewSearchElement) {
+            filterNewSearchElement.onclick = onFilterButton;
+        }
     })
 
     .catch(function(error) {
