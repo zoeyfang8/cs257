@@ -1,0 +1,13 @@
+Positive Comments:
+* Cool functionality
+* Filter search is easy to understand
+* Clear formatting/good use of color
+* Button and page organization is good, making navigation easier
+
+Areas for improvement:
+* Mainhue term is unclear (change to Flag Main Color)
+* Fuse mainhue search with filter search
+* Utilize button hovering
+* Improve search bar: enlarge search box, utilize drop down menu and text input, put search button close to it, label the search box, separate it from the rest of the page, utilise the enter key and search button, clear the search bar after searching
+* Indicate which page we are on
+* Mainhue results page -> bigger font
