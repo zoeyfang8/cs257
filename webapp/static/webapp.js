@@ -86,15 +86,15 @@ function onMainhueButton() {
      var element = document.getElementById('countryinfo');
     
     element.innerHTML = `<div class="body">
-        <p class = "cctop"> View mainhues  </p>
-        <p> Select a continent and view all its countries and their flags mainhue! </p>
+        <h2 class = "cctop"> View Flag Main Color  </h2>
+        <p> Select a continent and view all its countries and their flags' main color! </p>
         <p>
-            The mainhue is the predominant colour in the flag (tie-breaks decided by taking the topmost hue, if that fails then the most central hue, and if that fails the leftmost hue)
+            Tie-breaks decided by taking the topmost hue, if that fails then the most central hue, and if that fails the leftmost hue
         </p>
 
         <div>
-            <form>
-                Continent: 
+            <form >
+                <p id = "form"> Continent: 
                 <select id = "continent_selection">
                     <option> North America </option>
                     <option> South America </option>
@@ -103,21 +103,16 @@ function onMainhueButton() {
                     <option> Asia </option>
                     <option> Oceania </option>
                 </select>
-                <br>
-                <br>
+                </p>
             </form>
-            
-            
-            <button id ="go_button">
+            <button class="ccsearch" id ="mainhuegobutton">
                     GO!
             </button>
-                
-
-    </div>
+        </div>
 
     </div>`;
 
-    var mainhueGoElement = document.getElementById('go_button');
+    var mainhueGoElement = document.getElementById('mainhuegobutton');
     if (mainhueGoElement) {
         mainhueGoElement.onclick = onGoMainhueButton;
     }
@@ -177,29 +172,45 @@ function onGoMainhueButton() {
 function onFilterButton() {
     var element = document.getElementById('countryinfo');
     
-    element.innerHTML = `<h2 class="cctop">Color and Continent Search</h2>
+    element.innerHTML = `<div class="body">
+    <h2 class="cctop">Color and Continent Search</h2>
 
     <h3>Select Colors:  </h3>
 
-    <input type="checkbox" id="red" name="red" value="red">
-    <label for="red"> Red</label>
-    <input type="checkbox" id="blue" name="blue" value="blue">
-    <label for="blue"> Blue</label>
-    <input type="checkbox" id="green" name="green" value="green">
-    <label for="green"> Green</label>
-    <input type="checkbox" id="white" name="white" value="white">
-    <label for="white"> White</label><br>
-    <input type="checkbox" id="black" name="black" value="black">
-    <label for="black"> Black</label>
-    <input type="checkbox" id="gold" name="gold" value="gold">
-    <label for="gold"> Gold</label>
-    <input type="checkbox" id="orange" name="orange" value="orange">
-    <label for="orange"> Orange</label><br>
+    <div id = "checkgrid">
+        <div class = "indvcheck">
+            <input type="checkbox" id="red" name="red" value="red">
+            <label for="red"> Red</label>
+        </div>
+        <div class = "indvcheck">
+            <input type="checkbox" id="blue" name="blue" value="blue">
+            <label for="blue"> Blue</label>
+        </div>
+        <div class = "indvcheck">
+            <input type="checkbox" id="green" name="green" value="green">
+            <label for="green"> Green</label>
+        </div>
+        <div class = "indvcheck">
+            <input type="checkbox" id="white" name="white" value="white">
+            <label for="white"> White</label><br>
+        </div>
+        <div class = "indvcheck">
+            <input type="checkbox" id="black" name="black" value="black">
+            <label for="black"> Black</label>
+        </div>
+        <div class = "indvcheck">
+            <input type="checkbox" id="gold" name="gold" value="gold">
+            <label for="gold"> Gold</label>
+        </div>
+        <div class = "indvcheck">
+            <input type="checkbox" id="orange" name="orange" value="orange">
+            <label for="orange"> Orange</label><br>
+        </div>
+    </div>
 
 
-    <h3>Select Continent:  </h3>
-
-    <select name="continent" id="continent">
+    <h3>Select Continent:  
+     <select name="continent" id="continent">
         <option value=" "> </option>
         <option value="Asia">Asia</option>
         <option value="Africa">Africa</option>
@@ -207,12 +218,15 @@ function onFilterButton() {
         <option value="South America">South America</option>
         <option value="Europe">Europe</option>
         <option value="Oceania">Oceania</option>
-    </select>
+    </select></h3>
+
+   
     
     <br>
     <br>
    
-    <button class="ccsearch" id="filtergobutton">Go!</button>`;
+    <button class="ccsearch" id="filtergobutton">GO!</button>
+    </div>`;
 
     var filterGoElement = document.getElementById('filtergobutton');
     if (filterGoElement) {
@@ -262,10 +276,12 @@ function onGoFilterButton() {
     .then((response) => response.json())
 
     .then(function(countriesList) {
-        var body = `<h2 class="cctop">Color and Continent Search Results:
-            <button class="new_search" id = "filternewsearch">New Search</button>
+        
+        var body = `<p class="cctop">Color and Continent Search Results:
      
-         </h2>
+        <button class="new_search" id = "filternewsearch">New Search</button>
+         </p>
+         
 
         <div class="body">
         <div class="countriesgrid">`
@@ -300,5 +316,5 @@ function onHomeButton() {
     
     element.innerHTML = `<h2 class="cctop">Welcome to the Flags and Countries website! You can search by country and flags using 
         information about the colors and continent. </h2>
-        <img id = "worldmap" src="https://upload.wikimedia.org/wikipedia/commons/1/17/World.svg">`
+        <img id = "worldmap" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Globe_Atlantic.svg">`
 }
