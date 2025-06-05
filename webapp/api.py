@@ -30,8 +30,7 @@ def two_parameters_info():
             if color not in legal_colors:
                 continue
             query += f' AND {color} = 1'
-   # print(args['continent'])
-    #print(args['continent'] == ['north_america'])
+   
     if 'continent' in args:
         if args['continent'] == ['North America']:
             query += f' AND continent = 1'
