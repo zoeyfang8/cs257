@@ -4,6 +4,7 @@ function initialize() {
     var element = document.getElementById('searchbutton');
     if (element) {
         element.onclick = onSearchButton;
+        // element.value = '';
     }
 
     var mainhueElement = document.getElementById('mainhuebutton');
@@ -19,6 +20,28 @@ function initialize() {
     var homeElement = document.getElementById('homebutton');
     if (homeElement) {
        homeElement.onclick = onHomeButton;
+    }
+
+    var suggestionsElement = document.getElementById('suggestions');
+    if (suggestionsElement) {
+        var url = getAPIBaseURL() + '/countries';
+        
+        fetch(url, {method: 'get'})
+
+        .then((response) => response.json())
+
+
+        .then(function(infoAboutCountries) {
+            var body = ``
+            for (i=0; i<infoAboutCountries.length; i++)
+            {
+                body+= `<option value="${infoAboutCountries[i]}"></option>`
+            }
+            suggestionsElement.innerHTML = body;
+        })
+        .catch(function(error) {
+        console.log(error);
+        });
     }
 }
 
@@ -38,10 +61,11 @@ function getBaseURL() {
 }
 
 function onSearchButton() {
+    
     var url = getAPIBaseURL() + '/country';
-    var element = document.getElementById('country_name_search');
-    if (element) {
-        url += '/' + element.value;
+    var searchelement = document.getElementById('country_name_search');
+    if (searchelement) {
+        url += '/' + searchelement.value;
     }
 
     fetch(url, {method: 'get'})
@@ -73,12 +97,15 @@ function onSearchButton() {
                         </></div></>`        
         var element = document.getElementById('countryinfo');
         element.innerHTML = body;
+        searchelement.value = '';
         
     })
 
     .catch(function(error) {
         console.log(error);
     });
+
+
 }
 
 
@@ -309,6 +336,10 @@ function onGoFilterButton() {
     .catch(function(error) {
         console.log(error);
     });
+}
+
+function onCountryClick(){
+    
 }
 
 function onHomeButton() {

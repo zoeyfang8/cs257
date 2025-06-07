@@ -12,7 +12,7 @@ app.register_blueprint(api.api, url_prefix='/api')
 
 @app.route('/')
 def home():
-    return flask.render_template('actualhome.html')
+    return flask.render_template('home.html')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('A tiny Flask application, including API')

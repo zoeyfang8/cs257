@@ -6,6 +6,8 @@ import json
 import config
 import psycopg2
 
+# api = flask.Flask(__name__, static_folder='static', template_folder='templates')
+
 api = flask.Blueprint('api', __name__)
 
 @api.route('/')
@@ -160,7 +162,6 @@ def get_info_about_all_countries():
                 FROM flags''' 
     
     infoAboutCountries = []
-
     try:
         connection = psycopg2.connect(database=config.database,
                                       user=config.user,
@@ -169,8 +170,7 @@ def get_info_about_all_countries():
         cursor.execute(query) 
         # print('QUERY:', cursor.query.decode('utf-8'))
         for row in cursor:
-            print(row[0])
-            infoAboutCountries.append(country_name_search_helper(row[0]))
+            infoAboutCountries.append(row[0])
 
         cursor.close()
         connection.close()
@@ -231,3 +231,11 @@ def get_mainhue(continent):
 @api.route('/help')
 def get_help():
     return flask.render_template('help.html')
+
+
+# if __name__ == '__main__':
+#     parser = argparse.ArgumentParser('A tiny Flask application, including API')
+#     parser.add_argument('host', help='the host to run on')
+#     parser.add_argument('port', type=int, help='the port to listen on')
+#     arguments = parser.parse_args()
+#     api.run(host=arguments.host, port=arguments.port, debug=True)

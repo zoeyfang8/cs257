@@ -8,45 +8,55 @@
 </head>
 
 <body>
-    <div id="home">
-        <div id="homepage"><a id = "homelink" href = "mockup1.html">HOME</a></div>
+    <div id="header">
+        <h1>Flags and Countries</h1>
     </div>
 
-    <h1>Flags and Countries</h1>
+    <div id = "page">
+        <div id = "sidebar">
+            <div class = "bar">
+                  
+                <button class="barbutton" id="homebutton">Home</button>
+               
+            </div>
 
-    <hr>
+            <div class = "bar">
+                 
+                <button class="barbutton" id="mainhuebutton">Get Flag Main Color</button>
+               
+            </div>
 
-    <h2>Welcome to the Flags and Countries website! You can search by country and flags using 
-        information about the colors and continent.  </p>
-    
-    
-    <a href = "mockup2.html"> 
-         <button id="mainhue">View Mainhue</button>
-    </a> 
-
-    <a href = "mockup3.html"> 
-        <button id="colorcontinent">Search By Color/Continent</button>
-    </a>
-
-    <h1>
-        Hey Grader. Use the search bar below and type in a country, then press search!
-    </h1>
-    <div class="countrysearch">
-        <h2> Search by Country Name: </a>
+            <div class ="bar">
+               
+                 <button class="barbutton" id="filterbutton">Filter Search</button>
              
-           <!-- <form action="/country" >
-                <input type = "text" name = "countryname" placeholder="Search" id = "country_name_search">
-                <input type="submit" id="searchbutton">
-            </form>  -->
+            </div>
+        </div>
 
-            <input type = "text" name = "countryname" placeholder="Search" id = "country_name_search">
-            <button id = "searchbutton" class = "ccsearch"> Search </button>
+        <div id = "content">
+            <div id="search">
+                <p> Search by Country Name:
+                    <input type="text" id = "country_name_search" list="suggestions" name="search_term" placeholder="Search">
+                    <datalist id = "suggestions">
+                        
+                    </datalist>
+                
+                    <button id = "searchbutton" class = "countrynamesearch"> Search </button>
+                </p>
+                
+            </div>
+
+
+             <div id = "countryinfo"> 
+                <h2 class="cctop">Welcome to the Flags and Countries website! You can search by country and flags using 
+                    information about the colors and continent. </h2>
+                <img id = "worldmap" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Globe_Atlantic.svg">
+            </div>
+        </div>
     </div>
-
-    <div id = "countryinfo"></div>
     
-    <img id = "worldmap" src="https://upload.wikimedia.org/wikipedia/commons/1/17/World.svg">
-
+    
 
 </body>
 </html>
+
