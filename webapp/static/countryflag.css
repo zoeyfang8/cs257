@@ -16,6 +16,8 @@ h1 {
 }
 
 
+
+
 #home {
     text-align: center;
     height: 10px;
@@ -82,6 +84,10 @@ h3 {
     display: inline-block;
 }
 
+.ccsearch:hover{
+    background-color: #038628;
+}
+
 .countrynamesearch {
     height: 40%;
     width: 10%;
@@ -90,6 +96,10 @@ h3 {
     background-color: #03af34;
     color: #ffffff;
     display: inline-block;
+}
+
+.countrynamesearch:hover{
+    background-color: #038628;
 }
 
 .cctop {
@@ -107,6 +117,11 @@ h3 {
     color: rgb(0, 0, 0);
     width: 10%;
     font-weight: bold;
+}
+
+.new_search:hover{
+    background-color: #196084;
+    color:white;
 }
 
 .flagimage {
@@ -256,6 +271,11 @@ h3 {
     background-color: #ec3434;
     color: #ffffff;
     font-weight: bold;
+}
+
+.barbutton:hover{
+    background-color: #ae1515;
+    
 }
 
 html,

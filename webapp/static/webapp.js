@@ -74,6 +74,7 @@ function onSearchButton() {
 
 
     .then(function(finaldict) {
+        searchelement.value = '';
 
         var body =''
         body = `<div class = "country"> 
@@ -97,7 +98,6 @@ function onSearchButton() {
                         </></div></>`        
         var element = document.getElementById('countryinfo');
         element.innerHTML = body;
-        searchelement.value = '';
         
     })
 
@@ -188,6 +188,57 @@ function onGoMainhueButton() {
         if (mainhueNewSearchElement) {
             mainhueNewSearchElement.onclick = onMainhueButton;
         }
+
+        onCountryClick();
+
+    //     var gridElements = document.getElementsByClassName('grid_element');
+    //     for (let i = 0; i < gridElements.length; i++){
+    //         gridElements[i].onclick = function (){
+    //             var countryName = gridElements[i].querySelector('.country_name');
+    //             var url = getAPIBaseURL() + '/country';
+    //             if (countryName) {
+    //                 url += '/' + countryName.textContent;
+    //             }
+
+    //             fetch(url, {method: 'get'})
+
+    //             .then((response) => response.json())
+
+
+    //             .then(function(finaldict) {
+
+    //                 var body =''
+    //                 body = `<div class = "country"> 
+    //                         <div class="country_info">
+    //                             <h2 id="single_title"> ${finaldict['Country Name']} </h2>
+    //                             <p id="single_continent"> ${finaldict['continent']}</p>
+    //                             <p id="single_area"> ${finaldict['area']}000 km<sup>2</sup></p>
+    //                             <p> Flag Colors</p>`
+    //                 var element = document.getElementById('colorslist');
+    //                 var listBody = ''
+    //                 colorslist = finaldict['colors']
+    //                 for (i=0;i< colorslist.length; i++){
+    //                     console.log(colorslist[i])
+    //                     listBody +=  `<li> ${colorslist[i]} </li>\n`
+                    
+    //                 }
+    //                 body += listBody;  
+    //                 body +=  `<p> Main hue: ${finaldict['Mainhue']}</p>
+    //                         </div><div class="image_container">
+    //                                 <img class="single_image" src="${finaldict['flagimage']}">
+    //                                 </></div></>`        
+    //                 var element = document.getElementById('countryinfo');
+    //                 element.innerHTML = body;
+    //                 searchelement.value = '';
+                    
+    //             })
+
+    //             .catch(function(error) {
+    //                 console.log(error);
+    //             });    
+
+    //         }
+    //     }
     })
 
     .catch(function(error) {
@@ -316,9 +367,9 @@ function onGoFilterButton() {
 
         for (i=0; i<countriesList.length; i++) {
             var currentItem = countriesList[i];
-            body += `<div class="indvgrid">
+            body += `<div class="grid_element">
                 <img class="flagimage" src="${currentItem['image']}">
-                <h3 class="flagcountryname">${currentItem['name']}</h3>
+                <h3 class="country_name">${currentItem['name']}</h3>
             </div>`
         }
 
@@ -331,6 +382,8 @@ function onGoFilterButton() {
         if (filterNewSearchElement) {
             filterNewSearchElement.onclick = onFilterButton;
         }
+
+        onCountryClick();
     })
 
     .catch(function(error) {
@@ -339,7 +392,57 @@ function onGoFilterButton() {
 }
 
 function onCountryClick(){
-    
+        var gridElements = document.getElementsByClassName('grid_element');
+        for (let i = 0; i < gridElements.length; i++){
+            gridElements[i].onclick = function (){
+                var countryName = gridElements[i].querySelector('.country_name');
+                var url = getAPIBaseURL() + '/country';
+                if (countryName) {
+                    url += '/' + countryName.textContent;
+                }
+
+                fetch(url, {method: 'get'})
+
+                .then((response) => response.json())
+
+
+                .then(function(finaldict) {
+
+                    var body =''
+                    body = `<div class = "country"> 
+                            <div class="country_info">
+                                <h2 id="single_title"> ${finaldict['Country Name']} </h2>
+                                <p id="single_continent"> ${finaldict['continent']}</p>
+                                <p id="single_area"> ${finaldict['area']}000 km<sup>2</sup></p>
+                                <p> Flag Colors</p>`
+                    var element = document.getElementById('colorslist');
+                    var listBody = ''
+                    colorslist = finaldict['colors']
+                    for (i=0;i< colorslist.length; i++){
+                        console.log(colorslist[i])
+                        listBody +=  `<li> ${colorslist[i]} </li>\n`
+                    
+                    }
+                    body += listBody;  
+                    body +=  `<p> Main hue: ${finaldict['Mainhue']}</p>
+                            </div><div class="image_container">
+                                    <img class="single_image" src="${finaldict['flagimage']}">
+                                    </></div></>`        
+                    var element = document.getElementById('countryinfo');
+                    element.innerHTML = body;
+                    searchelement.value = '';
+                    
+                })
+
+                .catch(function(error) {
+                    console.log(error);
+                });    
+
+            }
+        }
+
+
+
 }
 
 function onHomeButton() {
