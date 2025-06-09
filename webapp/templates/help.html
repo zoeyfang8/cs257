@@ -9,7 +9,7 @@ All responses are in JSON
 
 REQUEST: /help
 RESPONSE:
-    Hi! This is an API for information about countries and flags!
+    Hi! This webpage gives information about countries and flags!
 
 REQUEST: /mainhue/{continent}
 RESPONSE:
@@ -30,12 +30,8 @@ RESPONSE: A list of the countries who have that specific color in their flag. Ea
 	{list of countries with red, green, and gold in flag and that are in the continent Asia}
 
 REQUEST: /countries
-RESPONSE: a JSON list of dictionaries, each of which represents one country, sorted alphabetically. Each country's dictionary will have the following fields.
+RESPONSE: a JSON list of all the country names, sorted alphabetically.
    name -- (string) the name of the country
-   continent -- (string) the continent the country belongs to
-   area -- (int) the area of the country
-   mainhue – (string) the main color of the flag of the country
-   colors – the colors that are on the flag of the country
 
 REQUEST: /country/{country name}
 RESPONSE: a JSON dictionary, each of which represents one country, with each element as an attribute of the country. Each country's list will have the following information:

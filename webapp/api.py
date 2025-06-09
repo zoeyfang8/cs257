@@ -6,8 +6,6 @@ import json
 import config
 import psycopg2
 
-# api = flask.Flask(__name__, static_folder='static', template_folder='templates')
-
 api = flask.Blueprint('api', __name__)
 
 @api.route('/')
@@ -231,11 +229,3 @@ def get_mainhue(continent):
 @api.route('/help')
 def get_help():
     return flask.render_template('help.html')
-
-
-# if __name__ == '__main__':
-#     parser = argparse.ArgumentParser('A tiny Flask application, including API')
-#     parser.add_argument('host', help='the host to run on')
-#     parser.add_argument('port', type=int, help='the port to listen on')
-#     arguments = parser.parse_args()
-#     api.run(host=arguments.host, port=arguments.port, debug=True)

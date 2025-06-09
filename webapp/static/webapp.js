@@ -81,7 +81,7 @@ function onSearchButton() {
                 <div class="country_info">
                     <h2 id="single_title"> ${finaldict['Country Name']} </h2>
                     <p id="single_continent"> ${finaldict['continent']}</p>
-                    <p id="single_area"> ${finaldict['area']}000 km<sup>2</sup></p>
+                    <p id="single_area"> Area: ${finaldict['area']}000 km<sup>2</sup></p>
                     <p> Flag Colors</p>`
         var element = document.getElementById('colorslist');
         var listBody = ''
@@ -92,7 +92,7 @@ function onSearchButton() {
         
         }
         body += listBody;  
-        body +=  `<p> Main hue: ${finaldict['Mainhue']}</p>
+        body +=  `<p> Flag Main Color: ${finaldict['Mainhue']}</p>
                 </div><div class="image_container">
                         <img class="single_image" src="${finaldict['flagimage']}">
                         </></div></>`        
@@ -190,55 +190,6 @@ function onGoMainhueButton() {
         }
 
         onCountryClick();
-
-    //     var gridElements = document.getElementsByClassName('grid_element');
-    //     for (let i = 0; i < gridElements.length; i++){
-    //         gridElements[i].onclick = function (){
-    //             var countryName = gridElements[i].querySelector('.country_name');
-    //             var url = getAPIBaseURL() + '/country';
-    //             if (countryName) {
-    //                 url += '/' + countryName.textContent;
-    //             }
-
-    //             fetch(url, {method: 'get'})
-
-    //             .then((response) => response.json())
-
-
-    //             .then(function(finaldict) {
-
-    //                 var body =''
-    //                 body = `<div class = "country"> 
-    //                         <div class="country_info">
-    //                             <h2 id="single_title"> ${finaldict['Country Name']} </h2>
-    //                             <p id="single_continent"> ${finaldict['continent']}</p>
-    //                             <p id="single_area"> ${finaldict['area']}000 km<sup>2</sup></p>
-    //                             <p> Flag Colors</p>`
-    //                 var element = document.getElementById('colorslist');
-    //                 var listBody = ''
-    //                 colorslist = finaldict['colors']
-    //                 for (i=0;i< colorslist.length; i++){
-    //                     console.log(colorslist[i])
-    //                     listBody +=  `<li> ${colorslist[i]} </li>\n`
-                    
-    //                 }
-    //                 body += listBody;  
-    //                 body +=  `<p> Main hue: ${finaldict['Mainhue']}</p>
-    //                         </div><div class="image_container">
-    //                                 <img class="single_image" src="${finaldict['flagimage']}">
-    //                                 </></div></>`        
-    //                 var element = document.getElementById('countryinfo');
-    //                 element.innerHTML = body;
-    //                 searchelement.value = '';
-                    
-    //             })
-
-    //             .catch(function(error) {
-    //                 console.log(error);
-    //             });    
-
-    //         }
-    //     }
     })
 
     .catch(function(error) {
@@ -413,7 +364,7 @@ function onCountryClick(){
                             <div class="country_info">
                                 <h2 id="single_title"> ${finaldict['Country Name']} </h2>
                                 <p id="single_continent"> ${finaldict['continent']}</p>
-                                <p id="single_area"> ${finaldict['area']}000 km<sup>2</sup></p>
+                                <p id="single_area"> Area: ${finaldict['area']}000 km<sup>2</sup></p>
                                 <p> Flag Colors</p>`
                     var element = document.getElementById('colorslist');
                     var listBody = ''
@@ -424,7 +375,7 @@ function onCountryClick(){
                     
                     }
                     body += listBody;  
-                    body +=  `<p> Main hue: ${finaldict['Mainhue']}</p>
+                    body +=  `<p> Flag Main Color: ${finaldict['Mainhue']}</p>
                             </div><div class="image_container">
                                     <img class="single_image" src="${finaldict['flagimage']}">
                                     </></div></>`        
